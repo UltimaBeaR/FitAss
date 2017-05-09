@@ -1,0 +1,60 @@
+﻿<Window x:Class="FitAssWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitAssWPF"
+        xmlns:ctrls="clr-namespace:FitAssWPF.Controls"
+        mc:Ignorable="d"
+        Title="Fit ASS" Width="1000" Height="600" Background="#FFFFE0">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Margin="0,0,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Дни" Margin="0,0,0,5" />
+
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="DarkGray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding Days}" Margin="5">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="1" BorderBrush="Black" Margin="0,0,0,2">
+                                        <DockPanel Margin="2">
+                                            <ctrls:WatermarkTextBox Width="200" Watermark="Название" ToolTip="{Binding Watermark, RelativeSource={RelativeSource Self}}" DockPanel.Dock="Left" Text="{Binding Name}" Margin="0,0,5,0" />
+                                            <Button HorizontalAlignment="Left" Content="Открыть" Click="OnOpenDayClicked" />
+                                            <Button HorizontalAlignment="Right" Width="20" Height="20" Content="X" Background="Orange" Click="OnRemoveDayClicked" />
+                                        </DockPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+
+                    <Button Grid.Row="1" Content="+ День" Background="LightBlue" HorizontalAlignment="Left" Margin="5" Click="OnNewDayClicked" />
+                </Grid>
+            </Border>
+        </Grid>
+
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" >
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Button Content="Сохранить все"  Click="OnSaveAllClicked" Margin="0,0,5,0" />
+                <Button Content="Открыть сохранение" Click="OnOpenSaveFolderClicked" />
+            </StackPanel>
+            <Button Content="Открыть список продуктов" Click="OnOpenProductsClicked" />
+        </StackPanel>
+    </Grid>
+</Window>
