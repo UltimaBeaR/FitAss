@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+
+    "alwaysStrict": true,
+
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.promise"
+    ],
+
+    // Разрешаем транспиляцию из JavaScript в JavaScript (Из новой версии языка в старую. Расширение файлов .js)
+    "allowJs": true,
+    // Версия JavaScript, в которую будет транспилиться TypeScript
+    "target": "es5",
+    // Синтакс для работы с модулями (рекомендовано для vue)
+    "module": "es2015",
+    // Стратегия разрешения модулей
+    "moduleResolution": "node",
+    // Включаем генерацию данных для отладки TypeScript
+    "sourceMap": true
+  },
+
+
+  // Указываем, откуда брать исходники .ts и .js, которые надо транспилить в старый JavaScript
+  "include": [ "./Scripts/*" ],
+  "compileOnSave": false
+}

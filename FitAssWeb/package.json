@@ -1,5 +1,20 @@
 {
   "version": "1.0.0",
   "name": "fitassweb",
-  "private": true
+  "private": true,
+
+  "devDependencies": {
+    "webpack": "^2.5.1",
+    "typescript": "^2.3.2",
+    "ts-loader": "^2.0.3",
+    "clean-webpack-plugin": "^0.1.16"
+  },
+  "scripts": {
+    "webpack-script": "webpack"
+  },
+  "-vs-binding": {
+    "BeforeBuild": [
+      "webpack-script"
+    ]
+  }
 }
