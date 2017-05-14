@@ -3,6 +3,10 @@
   "name": "fitassweb",
   "private": true,
 
+  "dependencies": {
+    "vue": "^2.3.3"
+  },
+
   "devDependencies": {
     "webpack": "^2.5.1",
     "typescript": "^2.3.2",
