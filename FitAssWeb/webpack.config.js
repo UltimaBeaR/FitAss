@@ -29,15 +29,15 @@
             ]
         },
         resolve: {
-            extensions: [".tsx", ".ts", ".js"]
-        },
-        plugins: [
             alias: {
                 // Это нужно чтобы включить режим полной поддержки vue, чтобы у него работал компилятор
                 // Если этого не сделать, то будет runtime версия vue (видимо по дефолту), и она сможет только с прекомпилированными компонентами работать
                 "vue$": "vue/dist/vue.esm.js"
             },
 
+            extensions: [".tsx", ".ts", ".js"]
+        },
+        plugins: [
             new CleanWebpackPlugin([bundlesFolder])
         ],
 
